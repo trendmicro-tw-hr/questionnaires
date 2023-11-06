@@ -1,0 +1,48 @@
+title: 2023-devops-days-taiwan
+questionnaires:
+  # - question: 問題
+  #   type: radio/checkbox/textarea/inputList
+  #   max: 最大數量 (checkbox and inputList only, 0 = 不限)
+  #   placeholder: 說明 (textarea only)
+  #   otherAnswer: false/true
+  #   answers:
+  #     - 答案1
+  #     - 答案2
+  #     - 答案3
+  #     - 答案4
+  #   help: 說明
+  #     title: 標題
+  #     description: 內容
+  #     Chart:
+  #       labels:
+  #         - 答案1
+  #       data:
+  #         - 值1
+
+  - question: 我想要感謝的人
+    type: inputList
+    max: 5
+    placeholder: Eva Chen
+
+  - question: 我想感謝的趨勢時光
+    type: checkbox
+    max: 2
+    otherAnswer: true
+    answers:
+      - 學習時光 (Trend University, HR Training, Internal Sharing…)
+      - 享樂時光 (春酒, 下午茶,福委/社團活動…)
+      - 強健時光 (運動會, 健康檢查, 小護士協助)
+      - 進步時光 (retro meeting, Kudos plus Growth feedback, Team Building…)
+
+  - question: 我想對公司的這個東西說謝謝
+    type: checkbox
+    otherAnswer: true
+    answers:
+      - InBody機
+      - 膠囊咖啡機
+      - 點心販賣機
+      - 小護士急救站
+
+  - question: 我還想感謝的事情
+    type: textarea
+    placeholder: 請輸入你想要感謝的事情

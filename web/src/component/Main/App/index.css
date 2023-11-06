@@ -1,0 +1,10 @@
+.logo-div > div {
+  width: 150px;
+}
+
+@media not all and (min-width: 768px) {
+  .navbar > header {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+}

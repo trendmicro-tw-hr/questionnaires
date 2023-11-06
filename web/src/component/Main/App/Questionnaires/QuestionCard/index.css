@@ -1,0 +1,7 @@
+.other-input > label {
+  flex: 0 1 auto;
+}
+
+.other-input > div {
+  flex: 1 0 auto;
+}
