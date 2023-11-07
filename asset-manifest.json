@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/questionnaires/static/css/main.67ec2f93.css",
-    "main.js": "/questionnaires/static/js/main.9304c2cf.js",
+    "main.js": "/questionnaires/static/js/main.e8bc4607.js",
     "index.html": "/questionnaires/index.html",
     "main.67ec2f93.css.map": "/questionnaires/static/css/main.67ec2f93.css.map",
-    "main.9304c2cf.js.map": "/questionnaires/static/js/main.9304c2cf.js.map"
+    "main.e8bc4607.js.map": "/questionnaires/static/js/main.e8bc4607.js.map"
   },
   "entrypoints": [
     "static/css/main.67ec2f93.css",
-    "static/js/main.9304c2cf.js"
+    "static/js/main.e8bc4607.js"
   ]
 }
