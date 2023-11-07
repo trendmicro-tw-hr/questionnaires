@@ -77,7 +77,7 @@ export default function App() {
     };
 
     await axios.post(
-      "https://api.github.com/repos/trendmicro/2023-tw-devops-days/dispatches",
+      "https://api.github.com/repos/trendmicro-tw-hr/questionnaires/dispatches",
       {
         event_type: "submit-request",
         client_payload: {
