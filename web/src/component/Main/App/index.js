@@ -68,7 +68,7 @@ export default function App() {
     const bearerBytes = AES.decrypt(bearer, key);
     const headers = {
       "Content-Type": "application/json",
-      Authorization: bearerBytes.toString(encUtf8),
+      Authorization: `Bearer ${bearerBytes.toString(encUtf8)}`,
     };
     const postData = {
       ...getQuestionsFormValues(),
