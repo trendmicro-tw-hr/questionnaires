@@ -1,15 +1,21 @@
 title: 2023-thanksgiving-day
 questionnaires:
   # - question: 問題
+  #   description: 問題描述
+  #   descriptionNewLine: 問題與描述是否換行 [false/true] (default: false)
   #   type: radio/checkbox/textarea/inputList
   #   max: 最大數量 (checkbox and inputList only, 0 = 不限)
   #   placeholder: 說明 (textarea only)
-  #   otherAnswer: false/true
+  #   otherAnswer: 是否有其他選項 [false/true] (default: false)
   #   answers:
-  #     - 答案1
-  #     - 答案2
-  #     - 答案3
-  #     - 答案4
+  #     - name: 答案1
+  #       description: 答案1的描述
+  #     - name: 答案2
+  #       description: 答案2的描述
+  #     - name: 答案3
+  #       description: 答案3的描述
+  #     - name: 答案4
+  #       description: 答案4的描述
   #   help: 說明
   #     title: 標題
   #     description: 內容
@@ -18,31 +24,44 @@ questionnaires:
   #         - 答案1
   #       data:
   #         - 值1
+  #   allowEmptyValue: 允許空值送出 [false/true] (default: false)
+  #   answerUpperCase: 轉換首字大寫 [false/true] (default: false)
 
-  - question: 我想要感謝的人
+  - question: 我想感謝的人...
+    description: "請列出你想感謝的趨勢人英文名"
+    descriptionNewLine: true
     type: inputList
-    max: 5
-    placeholder: Eva Chen
+    max: 0
+    placeholder: Banana Ch Huang
+    allowEmptyValue: true
+    answerUpperCase: true
 
-  - question: 我想感謝的趨勢時光
+  - question: 我想感謝的趨勢時光...
     type: checkbox
     max: 2
     otherAnswer: true
     answers:
-      - 學習時光 (Trend University, HR Training, Internal Sharing…)
-      - 享樂時光 (春酒, 下午茶,福委/社團活動…)
-      - 強健時光 (運動會, 健康檢查, 小護士協助)
-      - 進步時光 (retro meeting, Kudos plus Growth feedback, Team Building…)
+      - name: 學習時光
+        description: Trend University, HR Training, Internal Sharing...
+      - name: 享樂時光
+        description: 春酒, 下午茶,福委/社團活動...
+      - name: 強健時光
+        description: 運動會, 健康檢查, 小護士協助...
+      - name: 進步時光
+        description: retro meeting, Kudos plus Growth feedback, Team Building...
+    allowEmptyValue: true
 
-  - question: 我想對公司的這個東西說謝謝
+  - question: 我想對公司的這個東西說謝謝...
     type: checkbox
     otherAnswer: true
     answers:
-      - InBody機
-      - 膠囊咖啡機
-      - 點心販賣機
-      - 小護士急救站
+      - name: InBody機
+      - name: 膠囊咖啡機
+      - name: 點心販賣機
+      - name: 小護士急救站
+    allowEmptyValue: true
 
-  - question: 我還想感謝的事情
+  - question: 我還想感謝的事情...
     type: textarea
     placeholder: 請輸入你想要感謝的事情
+    allowEmptyValue: true

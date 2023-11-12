@@ -1,3 +1,6 @@
+build.web:
+	docker-compose build web
+	
 up.web:
 	docker-compose up web -d --build
 

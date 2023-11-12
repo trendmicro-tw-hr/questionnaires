@@ -39,6 +39,8 @@ export default function QuestionCard({ step, index }) {
 
   const {
     question = "",
+    description = "",
+    descriptionNewLine = false,
     answers = [],
     type = "",
     otherAnswer = false,
@@ -70,9 +72,10 @@ export default function QuestionCard({ step, index }) {
   };
 
   const processOptionsText = () => {
-    const result = [];
+    let result = [];
     if (type === "checkbox") result.push("多選");
     if (max >= 1) result.push(`最多選 ${max} 個`);
+    if (description !== '') result = [description];
 
     const resultText = result.join("、");
     return resultText !== "" ? ` (${resultText})` : null;
@@ -85,6 +88,7 @@ export default function QuestionCard({ step, index }) {
           <div className="flex">
             <p className="text-md">
               {question}
+              {descriptionNewLine ? <br /> : null}
               {processOptionsText()}
             </p>
           </div>
@@ -99,7 +103,7 @@ export default function QuestionCard({ step, index }) {
           name={`question-${index}`}
           control={control}
           defaultValue={question}
-          render={() => {}}
+          render={() => { }}
         />
         <CardBody>{renderCardBody()}</CardBody>
       </Skeleton>

@@ -1,15 +1,5 @@
 import React, { useCallback, useEffect, useState } from "react";
-import {
-  Table,
-  TableHeader,
-  TableColumn,
-  TableBody,
-  TableRow,
-  TableCell,
-  Input,
-  Tooltip,
-  Button,
-} from "@nextui-org/react";
+import { Input, Tooltip, Button } from "@nextui-org/react";
 import { TbRowRemove, TbRowInsertBottom } from "react-icons/tb";
 
 export const InputList = ({ placeholder, max, field }) => {
@@ -44,51 +34,40 @@ export const InputList = ({ placeholder, max, field }) => {
   };
 
   return (
-    <>
-      <Table hideHeader aria-label="Input List">
-        <TableHeader>
-          <TableColumn>NAME</TableColumn>
-          <TableColumn width="50">ACTION</TableColumn>
-        </TableHeader>
-        <TableBody items={rows}>
-          {(item) => (
-            <TableRow key={item.key}>
-              <TableCell>
-                <Input
-                  value={item.value}
-                  placeholder={placeholder}
-                  onChange={handleInputOnChange(item.key)}
-                />
-              </TableCell>
-              <TableCell width="50">
-                <div className="relative flex items-center gap-2">
-                  <Tooltip color="danger" content="Remove">
-                    <Button
-                      isIconOnly
-                      color="danger"
-                      aria-label="Remove"
-                      isDisabled={rows.length <= 1}
-                      onClick={handleRemoveOnClick(item.key)}
-                    >
-                      <TbRowRemove className="text-3xl" />
-                    </Button>
-                  </Tooltip>
-                </div>
-              </TableCell>
-            </TableRow>
-          )}
-        </TableBody>
-      </Table>
+    <div className="flex flex-col gap-4 pt-3">
+      {field.value.map((row, idx) => (
+        <div key={idx} className="flex gap-4">
+          <Input
+            className="grow-0"
+            value={row}
+            placeholder={placeholder}
+            onChange={handleInputOnChange(idx)}
+          />
+          <div className="relative flex items-center gap-2">
+            <Tooltip color="danger" content="Remove It" placement="left">
+              <Button
+                isIconOnly
+                color="danger"
+                aria-label="Remove"
+                isDisabled={rows.length <= 1}
+                onClick={handleRemoveOnClick(idx)}
+              >
+                <TbRowRemove className="text-3xl" />
+              </Button>
+            </Tooltip>
+          </div>
+        </div>
+      ))}
 
       <div className="flex px-4 flex-row-reverse justify-center">
         <div className="px-3">
-          <Tooltip color="success" content="Add">
+          <Tooltip color="success" content="Add A Trender" placement="bottom">
             <Button
               isIconOnly
               color="success"
               aria-label="Add"
               className="w-40"
-              isDisabled={rows.length >= max}
+              isDisabled={rows.length >= max && max >= 1}
               onClick={handleAddOnClick}
             >
               <TbRowInsertBottom className="text-3xl" />
@@ -96,6 +75,6 @@ export const InputList = ({ placeholder, max, field }) => {
           </Tooltip>
         </div>
       </div>
-    </>
+    </div>
   );
 };

@@ -34,9 +34,9 @@ export default function ThanksCard({ step }) {
               {...field}
               className="flex-1"
               key="name"
-              label="姓名 name"
+              label="姓名 Name"
               labelPlacement="outside"
-              placeholder="Eva Chen"
+              placeholder="Apple Hong"
               size="lg"
               startContent={
                 <FaUserAlt className="text-2xl text-default-400 pointer-events-none flex-shrink-0" />
@@ -57,7 +57,7 @@ export default function ThanksCard({ step }) {
               type="email"
               label="Email"
               labelPlacement="outside"
-              placeholder="username@trendmicro.com"
+              placeholder="apple_hong@trendmicro.com"
               size="lg"
               startContent={
                 <HiOutlineMailOpen className="text-2xl text-default-400 pointer-events-none flex-shrink-0" />
@@ -72,8 +72,9 @@ export default function ThanksCard({ step }) {
     <Card className={`flex-0 w-full ${currentStep !== step ? "h-0" : ""}`}>
       <CardHeader className="flex gap-3">
         <BsChatTextFill className="w-10 h-10" />
-        <div className="flex">
-          <p className="text-2xl">感謝您參與這次活動</p>
+        <div className="flex flex-col">
+          <p className="text-2xl">感謝您參與這次的活動。</p>
+          <p className="text-2xl">留下您的資料，抽 Kudos Points 200點！</p>
         </div>
       </CardHeader>
       <Divider />

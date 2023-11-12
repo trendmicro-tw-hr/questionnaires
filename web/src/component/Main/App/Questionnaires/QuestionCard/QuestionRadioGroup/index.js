@@ -16,8 +16,9 @@ export const QuestionRadioGroup = ({ index, answers, otherAnswer, step }) => {
 
   const groupList = answers.map((answer) => {
     return (
-      <QuestionRadio key={`${index}-${answer}`} value={answer} size="lg">
-        {answer}
+      <QuestionRadio key={`${index}-${answer.name}`} value={answer.name} size="lg">
+        <p>{answer.name}</p>
+        {answer.description ? <p className="text-foreground/70">({answer.description})</p> : null}
       </QuestionRadio>
     );
   });

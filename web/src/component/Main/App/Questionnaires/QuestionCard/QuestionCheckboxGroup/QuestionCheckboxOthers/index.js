@@ -77,6 +77,8 @@ export const QuestionCheckboxOthers = ({
         className="grow other-input"
         labelPlacement="outside-left"
         label="其他"
+        placeholder="其他1 , 其他2 , 其他3 ..."
+        description="提示：請用 , 分隔多個答案"
         onChange={handleChange}
         isDisabled={isMax && fieldValue.indexOf(checkboxValue) <= -1}
       />

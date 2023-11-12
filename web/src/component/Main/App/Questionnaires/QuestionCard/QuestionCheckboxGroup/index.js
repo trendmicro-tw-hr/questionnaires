@@ -24,12 +24,13 @@ export const QuestionCheckboxGroup = ({
     const groupList = answers.map((answer) => {
       return (
         <QuestionCheckbox
-          key={`${index}-${answer}`}
-          value={answer}
+          key={`${index}-${answer.name}`}
+          value={answer.name}
           size="lg"
-          isDisabled={isMax && fieldValue.indexOf(answer) <= -1}
+          isDisabled={isMax && fieldValue.indexOf(answer.name) <= -1}
         >
-          {answer}
+          <p>{answer.name}</p>
+          {answer.description ? <p className="text-foreground/70">({answer.description})</p> : null}
         </QuestionCheckbox>
       );
     });

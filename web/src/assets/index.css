@@ -1347,6 +1347,10 @@ video {
   flex-grow: 1;
 }
 
+.grow-0 {
+  flex-grow: 0;
+}
+
 .basis-0 {
   flex-basis: 0px;
 }
@@ -2511,6 +2515,10 @@ video {
   padding-top: 0.5rem;
 }
 
+.pt-3 {
+  padding-top: 0.75rem;
+}
+
 .pt-6 {
   padding-top: 1.5rem;
 }
@@ -2547,6 +2555,11 @@ video {
 .text-3xl {
   font-size: 1.875rem;
   line-height: 2.25rem;
+}
+
+.text-4xl {
+  font-size: 2.25rem;
+  line-height: 2.5rem;
 }
 
 .text-\[0\.55rem\] {
@@ -2606,6 +2619,11 @@ video {
 .\!text-danger {
   --tw-text-opacity: 1 !important;
   color: hsl(var(--nextui-danger) / var(--nextui-danger-opacity, var(--tw-text-opacity))) !important;
+}
+
+.text-TrendMicro {
+  --tw-text-opacity: 1;
+  color: rgb(215 25 32 / var(--tw-text-opacity));
 }
 
 .text-background {
@@ -2683,6 +2701,10 @@ video {
 
 .text-foreground\/50 {
   color: hsl(var(--nextui-foreground) / 0.5);
+}
+
+.text-foreground\/70 {
+  color: hsl(var(--nextui-foreground) / 0.7);
 }
 
 .text-inherit {
@@ -6999,6 +7021,11 @@ body {
 
   .max-md\:pt-3 {
     padding-top: 0.75rem;
+  }
+
+  .max-md\:text-2xl {
+    font-size: 1.5rem;
+    line-height: 2rem;
   }
 
   .max-md\:text-base {

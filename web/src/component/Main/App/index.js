@@ -9,20 +9,20 @@ import {
   useDisclosure,
 } from "@nextui-org/react";
 import { useForm } from "react-hook-form";
-import axios from "axios";
-import AES from "crypto-js/aes";
-import encUtf8 from "crypto-js/enc-utf8";
+import Cookies from 'universal-cookie';
+
+import { postQuestionnairesData, postUsersData } from "../../../utils/api";
 
 import QuestionnairesContext from "../../../context/questionnaires";
 import Questionnaires from "./Questionnaires";
+import ResultModel from "./ResultModel";
 
 import "./index.css";
 
 export default function App() {
-  const bearer =
-    "U2FsdGVkX195MBfjRB3n3A+jvrvhf4vOf35h41lEI/fvwHsjN/U55coaj+0ZG8YjrrFTE5yViaSAfLGaAfstPJAJZLm2sehIoLBJZMAO1Bsqgl/tNXni7eIp5goVlQ7ML8TCLaKflzeu9Uy9YDscPg==";
-  const { onOpen: onModalOpen } = useDisclosure();
+  const { onOpen: onResultModalOpen, isOpen: isResultModalOpen, onOpenChange: onResultModalOpenChange } = useDisclosure();
   const [submitLoading, setSubmitLoading] = useState(false);
+  const cookies = new Cookies(null, { path: '/', maxAge: 2630000 });
 
   const {
     ctxValue: {
@@ -63,31 +63,55 @@ export default function App() {
     setStep(step - 1);
   };
 
+  const handleShowResult = () => {
+    onResultModalOpen()
+  }
+
+  const processStrUpperCase = (string) => {
+    const result = string.replace(/(-|_)+/i, ' ').replace(/\s{2,}/i, ' ').trim()
+    const resultArr = result.split(' ').reduce((prevValue, curValue) => (
+      prevValue.push(curValue.charAt(0).toUpperCase() + curValue.slice(1)) && prevValue
+    ), [])
+
+    return resultArr.join(' ')
+  }
+
   const postQuestionnaires = async () => {
     setSubmitLoading(true);
-    const bearerBytes = AES.decrypt(bearer, key);
-    const headers = {
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${bearerBytes.toString(encUtf8)}`,
-    };
-    const postData = {
-      ...getQuestionsFormValues(),
+
+    const forData = getQuestionsFormValues()
+    Object.keys(forData).forEach((key) => {
+      if (key.indexOf('answer-') >= 0) {
+        cookies.set(key, forData[key]);
+      }
+
+      if (!Array.isArray(forData[key])) return;
+
+      const questionsIdx = key.split('answer-')[1] ?? -1
+      const questionsConfig = questions[questionsIdx] ?? {}
+
+      if (questionsConfig.answerUpperCase) {
+        forData[key].forEach((val, idx) => {
+          forData[key][idx] = processStrUpperCase(val)
+        })
+      }
+
+      if (questionsConfig.otherAnswer) {
+        forData[key].forEach((val) => {
+          const multipleVal = val.split(',').reduce((prev, current) => prev.push(current.trim()) && prev, [])
+          if (multipleVal.length >= 2) {
+            forData[key] = forData[key].filter(item => item !== val)
+            forData[key].push(...multipleVal)
+          }
+        })
+      }
+    })
+
+    await postQuestionnairesData({
+      ...forData,
       time: new Date().toISOString(),
       formId,
-    };
-
-    await axios.post(
-      "https://api.github.com/repos/trendmicro-tw-hr/questionnaires/dispatches",
-      {
-        event_type: "submit-request",
-        client_payload: {
-          questionnaires: JSON.stringify(postData),
-        },
-      },
-      {
-        headers: headers,
-      }
-    );
+    }, { key })
 
     setSubmitLoading(false);
     handleNext();
@@ -95,39 +119,24 @@ export default function App() {
 
   const postPersonalInfo = async () => {
     setSubmitLoading(true);
-    const bearerBytes = AES.decrypt(bearer, key);
-    const headers = {
-      "Content-Type": "application/json",
-      Authorization: bearerBytes.toString(encUtf8),
-    };
-    const postData = {
+
+    await postUsersData({
       ...getPersonalFormValues(),
       time: new Date().toISOString(),
       formId,
-    };
-
-    await axios.post(
-      "https://api.github.com/repos/trendmicro/2023-tw-devops-days/dispatches",
-      {
-        event_type: "submit-request",
-        client_payload: {
-          users: JSON.stringify(postData),
-        },
-      },
-      {
-        headers: headers,
-      }
-    );
+    }, { key })
 
     setSubmitLoading(false);
+    handleShowResult();
   };
 
   const handleSubmit = () => {
     postPersonalInfo();
-    onModalOpen();
   };
 
   const disableNextButton = () => {
+    if (questions[questionNo - 1]?.allowEmptyValue ?? false) return false;
+
     const answer = questionsWatch(`answer-${questionNo - 1}`);
     if (Array.isArray(answer)) {
       return answer.filter((el) => el).length <= 0;
@@ -149,6 +158,14 @@ export default function App() {
   const renderNextButton = () => {
     switch (true) {
       case step <= 0:
+        if (typeof cookies.get('answer-0') !== "undefined") {
+
+          return (
+            <Button color="warning" variant="shadow" onClick={() => handleNext()}>
+              已經填寫過了，但我想要再繼續填寫
+            </Button>
+          );
+        }
         return (
           <Button color="primary" variant="shadow" onClick={() => handleNext()}>
             開始填寫
@@ -186,7 +203,7 @@ export default function App() {
             onClick={() => handleSubmit()}
             isLoading={submitLoading}
           >
-            重新填寫
+            抽 Kudos Points 200點
           </Button>
         );
       default:
@@ -210,18 +227,18 @@ export default function App() {
           justify="none"
         >
           <h1 className="text-2xl max-md:text-base font-bold text-inherit">
-            {step !== 0 ? "感恩大放送>>>雞不可失" : ""}
+            {step !== 0 ? <><span className="text-4xl max-md:text-2xl">感恩大放送</span>{' >>> '}<span>“雞”不可失</span></> : ""}
           </h1>
         </NavbarContent>
       </Navbar>
       <article className="flex-grow px-6 pt-6 max-md:px-3 max-md:pt-3">
         <Questionnaires />
+        <ResultModel isOpen={isResultModalOpen} onOpenChange={onResultModalOpenChange} />
       </article>
       <footer className="flex flex-col px-6">
         <div
-          className={`flex w-full ${
-            step !== maxStep && step >= 2 ? "justify-between" : "justify-end"
-          } py-6 max-md:py-3`}
+          className={`flex w-full ${step >= 2 ? "justify-between" : "justify-end"
+            } py-6 max-md:py-3`}
         >
           {step !== maxStep && step >= 2 ? (
             <Button
@@ -233,6 +250,15 @@ export default function App() {
               上一步
             </Button>
           ) : null}
+          {step === maxStep && step >= 2 ? (<>
+            <Button
+              color="danger"
+              variant="ghost"
+              onClick={() => handleShowResult()}
+            >
+              放棄抽獎
+            </Button>
+          </>) : null}
           {loading ? (
             <Button color="primary" variant="shadow" isDisabled isLoading>
               開始填寫
@@ -241,7 +267,8 @@ export default function App() {
             renderNextButton()
           )}
         </div>
-        <Progress
+
+        {step === 0 || step === maxStep ? null : <Progress
           size="md"
           value={questionNo}
           label={<></>}
@@ -250,7 +277,7 @@ export default function App() {
           color="success"
           showValueLabel={true}
           className="w-full pb-4"
-        />
+        />}
       </footer>
     </>
   );
