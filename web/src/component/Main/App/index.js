@@ -82,7 +82,7 @@ export default function App() {
     const forData = getQuestionsFormValues()
     Object.keys(forData).forEach((key) => {
       if (key.indexOf('answer-') >= 0) {
-        cookies.set(key, forData[key]);
+        cookies.set(`${questions.title}.${key}`, forData[key]);
       }
 
       if (!Array.isArray(forData[key])) return;
@@ -158,7 +158,7 @@ export default function App() {
   const renderNextButton = () => {
     switch (true) {
       case step <= 0:
-        if (typeof cookies.get('answer-0') !== "undefined") {
+        if (typeof cookies.get(`${questions.title}.answer-0`) !== "undefined") {
 
           return (
             <Button color="warning" variant="shadow" onClick={() => handleNext()}>
