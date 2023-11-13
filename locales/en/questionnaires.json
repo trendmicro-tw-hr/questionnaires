@@ -1,0 +1,21 @@
+{
+    "question_1": "People I want to thank...",
+    "description_1": "List the English names of the Trenders you want to thank one by one, ex: Banana CH Huang, unlimited",
+    "question_2": "Time in Trend I want to thank...",
+    "description_2": "Choose up to 2 items, other items are welcome to add",
+    "answers_name-2_1": "A. Learning Time",
+    "answers_description-2_1": "AI Contest, Trend University, HR Training, Internal Sharing...",
+    "answers_name-2_2": "B. Fun Time",
+    "answers_description-2_2": "Spring Party, Afternoon Tea, Welfare Committee/Club Activities, Travel Subsidy...",
+    "answers_name-2_3": "C. Healthy Time",
+    "answers_description-2_3": "Sports Day, Health Check/Consulting, Sport Clubs...",
+    "answers_name-2_4": "D. Advancing Time",
+    "answers_description-2_4": "Retro meeting, Kudos Plus Growth Feedback, Team Building...",
+    "question_3": "Things in Trend I want to thank...",
+    "answers_name-3_1": "A. InBody Machine",
+    "answers_name-3_2": "B. Capsule Coffee Machine",
+    "answers_name-3_3": "C. Vending Machine",
+    "answers_name-3_4": "D. Nurse First Aid Station",
+    "question_4": "Others I want to thank...",
+    "description_4": "Please input what you want to be thankful for"
+}

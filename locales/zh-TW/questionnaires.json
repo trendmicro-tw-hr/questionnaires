@@ -1,0 +1,21 @@
+{
+    "question_1": "我想感謝的人...",
+    "description_1": "請逐一列出你想感謝的趨勢人英文名，例如: Banana CH Huang，人數不限",
+    "question_2": "我想感謝的趨勢時光...",
+    "description_2": "最多選 2 項，有其他項目歡迎新增",
+    "answers_name-2_1": "A. 學習時光",
+    "answers_description-2_1": "AI Contest, Trend University, HR Training, Internal Sharing...",
+    "answers_name-2_2": "B. 享樂時光",
+    "answers_description-2_2": "春酒, 下午茶, 福委/社團活動, 旅遊補助...",
+    "answers_name-2_3": "C. 強健時光",
+    "answers_description-2_3": "運動會, 健康檢查/諮詢, 運動類社團...",
+    "answers_name-2_4": "D. 進步時光",
+    "answers_description-2_4": "Retro meeting, Kudos Plus Growth Feedback, Team Building...",
+    "question_3": "我想對公司的這個東西說謝謝...",
+    "answers_name-3_1": "A. InBody機",
+    "answers_name-3_2": "B. 膠囊咖啡機",
+    "answers_name-3_3": "C. 點心販賣機",
+    "answers_name-3_4": "D. 小護士急救站",
+    "question_4": "我還想感謝的事情...",
+    "description_4": "請輸入你想要感謝的事情"
+}

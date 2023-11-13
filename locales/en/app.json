@@ -1,0 +1,18 @@
+{
+    "start": "Start",
+    "startAgain": "Remind you that you have already filled it out!",
+    "giveUp": "Give up the Lottery",
+    "previous": "Previous",
+    "next": "Next",
+    "thanksgivingSpecial": "<1 className='text-4xl max-md:text-2xl'>Thanksgiving Special</1><2> >>> </2><3>Don't Miss \"Chickens\"</3>",
+    "complete": "Complete",
+    "submit": "Submit",
+    "addTrender": "Add a Trender",
+    "removeTrender": "Remove it",
+    "multipleChoice": "multiple choice",
+    "maxItem": "max {{max}} item(s)",
+    "othersLabel": "Others",
+    "othersPlaceholder": "other1, other2, other3...",
+    "othersDescription": "Tip: Please use , to separate multiple answers",
+    "switchLanguage": "中文"
+}

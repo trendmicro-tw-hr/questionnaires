@@ -2,7 +2,6 @@ title: 2023-thanksgiving-day
 questionnaires:
   # - question: 問題
   #   description: 問題描述
-  #   descriptionNewLine: 問題與描述是否換行 [false/true] (default: false)
   #   type: radio/checkbox/textarea/inputList
   #   max: 最大數量 (checkbox and inputList only, 0 = 不限)
   #   placeholder: 說明 (textarea only)
@@ -10,12 +9,16 @@ questionnaires:
   #   answers:
   #     - name: 答案1
   #       description: 答案1的描述
+  #       value: 答案1的值 (預設和 name 值一樣)
   #     - name: 答案2
   #       description: 答案2的描述
+  #       value: 答案2的值
   #     - name: 答案3
   #       description: 答案3的描述
+  #       value: 答案3的值
   #     - name: 答案4
   #       description: 答案4的描述
+  #       value: 答案4的值
   #   help: 說明
   #     title: 標題
   #     description: 內容
@@ -27,41 +30,49 @@ questionnaires:
   #   allowEmptyValue: 允許空值送出 [false/true] (default: false)
   #   answerUpperCase: 轉換首字大寫 [false/true] (default: false)
 
-  - question: 我想感謝的人...
-    description: "請列出你想感謝的趨勢人英文名"
-    descriptionNewLine: true
+  - question: question_1
+    description: description_1
     type: inputList
     max: 0
     placeholder: Banana Ch Huang
     allowEmptyValue: true
     answerUpperCase: true
 
-  - question: 我想感謝的趨勢時光...
+  - question: question_2
+    # description: description_2
     type: checkbox
     max: 2
     otherAnswer: true
     answers:
-      - name: 學習時光
-        description: Trend University, HR Training, Internal Sharing...
-      - name: 享樂時光
-        description: 春酒, 下午茶,福委/社團活動...
-      - name: 強健時光
-        description: 運動會, 健康檢查, 小護士協助...
-      - name: 進步時光
-        description: retro meeting, Kudos plus Growth feedback, Team Building...
+      - name: answers_name-2_1
+        description: answers_description-2_1
+        value: A
+      - name: answers_name-2_2
+        description: answers_description-2_2
+        value: B
+      - name: answers_name-2_3
+        description: answers_description-2_3
+        value: C
+      - name: answers_name-2_4
+        description: answers_description-2_4
+        value: D
     allowEmptyValue: true
 
-  - question: 我想對公司的這個東西說謝謝...
+  - question: question_3
     type: checkbox
     otherAnswer: true
     answers:
-      - name: InBody機
-      - name: 膠囊咖啡機
-      - name: 點心販賣機
-      - name: 小護士急救站
+      - name: answers_name-3_1
+        value: A
+      - name: answers_name-3_2
+        value: B
+      - name: answers_name-3_3
+        value: C
+      - name: answers_name-3_4
+        value: D
     allowEmptyValue: true
 
-  - question: 我還想感謝的事情...
+  - question: question_4
     type: textarea
-    placeholder: 請輸入你想要感謝的事情
+    placeholder: description_4
     allowEmptyValue: true
