@@ -12,7 +12,7 @@ services:
       - 8008:8008
     working_dir: /web
     volumes:
-      - ./web:/web
+      - ./:/web
     environment:
       REACT_SCRIPTS_PORT: 8008
 

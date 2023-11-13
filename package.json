@@ -1,0 +1,73 @@
+{
+  "name": "questionnaires",
+  "version": "0.1.0",
+  "private": true,
+  "homepage": "https://trend-andy-pan.github.io/questionnaires/#",
+  "dependencies": {
+    "@babel/traverse": "^7.23.2",
+    "@nextui-org/react": "^2.2.2",
+    "@testing-library/jest-dom": "^5.17.0",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^13.5.0",
+    "axios": "^1.6.1",
+    "chart.js": "^4.4.0",
+    "chartjs-chart-wordcloud": "^4.3.0",
+    "chartjs-plugin-datalabels": "^2.2.0",
+    "crypto-js": "^4.2.0",
+    "framer-motion": "^10.16.4",
+    "fs": "^0.0.1-security",
+    "i18next": "^23.7.5",
+    "i18next-browser-languagedetector": "^7.2.0",
+    "i18next-http-backend": "^2.4.1",
+    "nth-check": "^2.1.1",
+    "postcss": "^8.4.31",
+    "react": "^18.2.0",
+    "react-animated-numbers": "^0.16.0",
+    "react-animations": "^1.0.0",
+    "react-chartjs-2": "^5.2.0",
+    "react-dom": "^18.2.0",
+    "react-hook-form": "^7.46.1",
+    "react-i18next": "^13.4.0",
+    "react-icons": "^4.11.0",
+    "react-router-dom": "^6.16.0",
+    "react-scripts": "5.0.1",
+    "resolve-url-loader": "^5.0.0",
+    "styled-components": "^6.0.8",
+    "universal-cookie": "^6.1.1",
+    "uuid": "^9.0.1",
+    "web-vitals": "^2.1.4",
+    "yaml": "^2.3.2"
+  },
+  "overrides": {
+    "nth-check": "$nth-check",
+    "postcss": "$postcss"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.3.3"
+  },
+  "scripts": {
+    "start": "PORT=${REACT_SCRIPTS_PORT} react-scripts start",
+    "css": "npx tailwindcss -i ./src/index.css -o ./src/assets/index.css --watch",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}

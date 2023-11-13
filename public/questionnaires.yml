@@ -1,0 +1,78 @@
+title: 2023-thanksgiving-day
+questionnaires:
+  # - question: 問題
+  #   description: 問題描述
+  #   type: radio/checkbox/textarea/inputList
+  #   max: 最大數量 (checkbox and inputList only, 0 = 不限)
+  #   placeholder: 說明 (textarea only)
+  #   otherAnswer: 是否有其他選項 [false/true] (default: false)
+  #   answers:
+  #     - name: 答案1
+  #       description: 答案1的描述
+  #       value: 答案1的值 (預設和 name 值一樣)
+  #     - name: 答案2
+  #       description: 答案2的描述
+  #       value: 答案2的值
+  #     - name: 答案3
+  #       description: 答案3的描述
+  #       value: 答案3的值
+  #     - name: 答案4
+  #       description: 答案4的描述
+  #       value: 答案4的值
+  #   help: 說明
+  #     title: 標題
+  #     description: 內容
+  #     Chart:
+  #       labels:
+  #         - 答案1
+  #       data:
+  #         - 值1
+  #   allowEmptyValue: 允許空值送出 [false/true] (default: false)
+  #   answerUpperCase: 轉換首字大寫 [false/true] (default: false)
+
+  - question: question_1
+    description: description_1
+    type: inputList
+    max: 0
+    placeholder: Banana Ch Huang
+    allowEmptyValue: true
+    answerUpperCase: true
+
+  - question: question_2
+    # description: description_2
+    type: checkbox
+    max: 2
+    otherAnswer: true
+    answers:
+      - name: answers_name-2_1
+        description: answers_description-2_1
+        value: A
+      - name: answers_name-2_2
+        description: answers_description-2_2
+        value: B
+      - name: answers_name-2_3
+        description: answers_description-2_3
+        value: C
+      - name: answers_name-2_4
+        description: answers_description-2_4
+        value: D
+    allowEmptyValue: true
+
+  - question: question_3
+    type: checkbox
+    otherAnswer: true
+    answers:
+      - name: answers_name-3_1
+        value: A
+      - name: answers_name-3_2
+        value: B
+      - name: answers_name-3_3
+        value: C
+      - name: answers_name-3_4
+        value: D
+    allowEmptyValue: true
+
+  - question: question_4
+    type: textarea
+    placeholder: description_4
+    allowEmptyValue: true
