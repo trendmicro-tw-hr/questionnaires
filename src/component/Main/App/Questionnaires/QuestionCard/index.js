@@ -44,6 +44,7 @@ export default function QuestionCard({ step, index }) {
     otherAnswer = false,
     placeholder = "Input Some Description",
     max = 0,
+    maxIgnoresOtherAnswer = false,
   } = questions[index] ?? {};
 
   if (type === "") return null;
@@ -52,12 +53,19 @@ export default function QuestionCard({ step, index }) {
     switch (type) {
       case "radio":
         return (
-          <QuestionRadioGroup {...{ index, answers, otherAnswer, step, max }} />
+          <QuestionRadioGroup {...{ index, answers, otherAnswer, step }} />
         );
       case "checkbox":
         return (
           <QuestionCheckboxGroup
-            {...{ index, answers, otherAnswer, step, max }}
+            {...{
+              index,
+              answers,
+              otherAnswer,
+              step,
+              max,
+              maxIgnoresOtherAnswer,
+            }}
           />
         );
       case "textarea":

@@ -9,9 +9,10 @@ export const QuestionCheckboxOthers = ({
   radioCheckboxRef,
   isMax,
   fieldValue,
+  maxIgnoresOtherAnswer,
 }) => {
   const [dataSelected, setDataSelected] = useState(false);
-  const [checkboxValue, setCheckboxValue] = useState("其他");
+  const [checkboxValue, setCheckboxValue] = useState("");
   const { t } = useTranslation("app");
 
   const {
@@ -51,6 +52,7 @@ export const QuestionCheckboxOthers = ({
     const existIdx = nextValue.indexOf(checkboxValue);
     if (existIdx !== -1) {
       nextValue.splice(existIdx, 1);
+      setCheckboxValue("");
     } else {
       nextValue.push(checkboxValue);
     }
@@ -72,7 +74,11 @@ export const QuestionCheckboxOthers = ({
         value={checkboxValue}
         size="lg"
         onChange={handleCheckboxChange}
-        isDisabled={isMax && fieldValue.indexOf(checkboxValue) <= -1}
+        isDisabled={
+          !maxIgnoresOtherAnswer &&
+          isMax &&
+          fieldValue.indexOf(checkboxValue) <= -1
+        }
       />
       <Input
         className="grow other-input"
@@ -81,7 +87,12 @@ export const QuestionCheckboxOthers = ({
         placeholder={t("othersPlaceholder")}
         description={t("othersDescription")}
         onChange={handleChange}
-        isDisabled={isMax && fieldValue.indexOf(checkboxValue) <= -1}
+        value={checkboxValue}
+        isDisabled={
+          !maxIgnoresOtherAnswer &&
+          isMax &&
+          fieldValue.indexOf(checkboxValue) <= -1
+        }
       />
     </div>
   );

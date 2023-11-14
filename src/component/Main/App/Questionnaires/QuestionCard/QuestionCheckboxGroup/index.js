@@ -13,6 +13,7 @@ export const QuestionCheckboxGroup = ({
   otherAnswer,
   step,
   max,
+  maxIgnoresOtherAnswer,
 }) => {
   const childRef = useRef();
   const {
@@ -29,7 +30,9 @@ export const QuestionCheckboxGroup = ({
           key={`${index}-${answer.name}`}
           value={answer.value ?? answer.name}
           size="lg"
-          isDisabled={isMax && fieldValue.indexOf(answer.name) <= -1}
+          isDisabled={
+            isMax && fieldValue.indexOf(answer.value ?? answer.name) <= -1
+          }
         >
           <p>{t(answer.name)}</p>
           {answer.description ? (
@@ -47,8 +50,9 @@ export const QuestionCheckboxGroup = ({
             step,
             name: `answer-${index}`,
             radioCheckboxRef: childRef,
-            isMax: isMax,
-            fieldValue: fieldValue,
+            isMax,
+            fieldValue,
+            maxIgnoresOtherAnswer,
           }}
         />
       );
