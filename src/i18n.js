@@ -1,7 +1,7 @@
 import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
 import Backend from "i18next-http-backend";
-import LanguageDetector from 'i18next-browser-languagedetector';
+import LanguageDetector from "i18next-browser-languagedetector";
 
 i18n
   .use(Backend)
@@ -11,16 +11,21 @@ i18n
     backend: {
       loadPath: `${process.env.PUBLIC_URL}/locales/{{lng}}/{{ns}}.json`,
     },
-    detection: { order: ["path", "navigator"] },
+    detection: {
+      order: ["querystring", "navigator"],
+    },
+    defaultNS: "app",
+    lowerCaseLng: true,
+    ns: ["app"],
     fallbackLng: "en",
-    whitelist: ['en', 'zh-TW'],
+    whitelist: ["en", "zh-tw"],
     keySeparator: false,
     interpolation: {
       escapeValue: false,
     },
     react: {
-      transKeepBasicHtmlNodesFor: ['br', 'strong', 'i', 'p', 'u', 'span'],
-    }
+      transKeepBasicHtmlNodesFor: ["br", "strong", "i", "p", "u", "span"],
+    },
   });
 
 export default i18n;
