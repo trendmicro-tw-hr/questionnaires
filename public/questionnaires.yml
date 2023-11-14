@@ -40,7 +40,7 @@ questionnaires:
     answerUpperCase: true
 
   - question: question_2
-    # description: description_2
+    description: description_2
     type: checkbox
     max: 2
     otherAnswer: true
