@@ -33,7 +33,7 @@ export default function ResultModel({ isOpen, onOpenChange }) {
               []
             );
             answer.forEach((val, idx) => {
-              answer[idx] = t(answerValue[val]);
+              answer[idx] = t(answerValue[val] ?? val);
             });
             answer = answer.join(", ");
           }
