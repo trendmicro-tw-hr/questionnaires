@@ -1,7 +1,7 @@
 import React, { useContext, useRef } from "react";
 import { Controller } from "react-hook-form";
 import { CheckboxGroup } from "@nextui-org/react";
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from "react-i18next";
 
 import QuestionnairesContext from "../../../../../../context/questionnaires";
 import { QuestionCheckbox } from "./QuestionCheckbox";
@@ -20,7 +20,7 @@ export const QuestionCheckboxGroup = ({
       questionsForm: { control },
     },
   } = useContext(QuestionnairesContext);
-  const { t } = useTranslation('questionnaires');
+  const { t } = useTranslation("questionnaires");
 
   const renderGroupList = (isMax, fieldValue) => {
     const groupList = answers.map((answer) => {
@@ -32,7 +32,9 @@ export const QuestionCheckboxGroup = ({
           isDisabled={isMax && fieldValue.indexOf(answer.name) <= -1}
         >
           <p>{t(answer.name)}</p>
-          {answer.description ? <p className="text-foreground/70">({t(answer.description)})</p> : null}
+          {answer.description ? (
+            <p className="text-foreground/70">({t(answer.description)})</p>
+          ) : null}
         </QuestionCheckbox>
       );
     });

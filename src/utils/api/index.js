@@ -10,8 +10,8 @@ const requestHeader = (key) => {
     Authorization: `Bearer ${bearerBytes.toString(encUtf8)}`,
   };
 
-  return headers
-}
+  return headers;
+};
 
 export const postQuestionnairesData = async (postData, options) => {
   await axios.post(
@@ -26,8 +26,7 @@ export const postQuestionnairesData = async (postData, options) => {
       headers: requestHeader(options.key),
     }
   );
-}
-
+};
 
 export const postUsersData = async (postData, options) => {
   await axios.post(
@@ -42,4 +41,4 @@ export const postUsersData = async (postData, options) => {
       headers: requestHeader(options.key),
     }
   );
-}
+};

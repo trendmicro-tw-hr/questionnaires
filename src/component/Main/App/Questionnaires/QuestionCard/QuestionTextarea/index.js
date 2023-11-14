@@ -17,7 +17,12 @@ export const QuestionTextarea = ({ index, placeholder }) => {
       control={control}
       defaultValue={""}
       render={({ field }) => (
-        <Textarea {...field} variant="faded" size="lg" placeholder={placeholder} />
+        <Textarea
+          {...field}
+          variant="faded"
+          size="lg"
+          placeholder={placeholder}
+        />
       )}
     />
   );

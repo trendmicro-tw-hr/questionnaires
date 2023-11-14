@@ -1,7 +1,7 @@
 import React, { useContext, useImperativeHandle, useState } from "react";
 import { Checkbox, Input } from "@nextui-org/react";
 import QuestionnairesContext from "../../../../../../../context/questionnaires";
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from "react-i18next";
 
 export const QuestionCheckboxOthers = ({
   step,
@@ -12,7 +12,7 @@ export const QuestionCheckboxOthers = ({
 }) => {
   const [dataSelected, setDataSelected] = useState(false);
   const [checkboxValue, setCheckboxValue] = useState("其他");
-  const { t } = useTranslation('app');
+  const { t } = useTranslation("app");
 
   const {
     ctxValue: {
@@ -77,9 +77,9 @@ export const QuestionCheckboxOthers = ({
       <Input
         className="grow other-input"
         labelPlacement="outside-left"
-        label={t('othersLabel')}
-        placeholder={t('othersPlaceholder')}
-        description={t('othersDescription')}
+        label={t("othersLabel")}
+        placeholder={t("othersPlaceholder")}
+        description={t("othersDescription")}
         onChange={handleChange}
         isDisabled={isMax && fieldValue.indexOf(checkboxValue) <= -1}
       />

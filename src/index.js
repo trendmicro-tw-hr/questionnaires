@@ -3,7 +3,7 @@ import ReactDOM from "react-dom/client";
 import { NextUIProvider } from "@nextui-org/react";
 import { createHashRouter, RouterProvider } from "react-router-dom";
 
-import './i18n'
+import "./i18n";
 import { QuestionnairesProvider } from "./context/questionnaires";
 
 import ErrorPage from "./component/ErrorPage";

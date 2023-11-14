@@ -1,13 +1,8 @@
 import React, { useContext, useEffect } from "react";
-import {
-  Card,
-  CardHeader,
-  CardBody,
-  Divider,
-} from "@nextui-org/react";
+import { Card, CardHeader, CardBody, Divider } from "@nextui-org/react";
 import { RiQuestionAnswerFill } from "react-icons/ri";
 import { Controller } from "react-hook-form";
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from "react-i18next";
 
 import QuestionnairesContext from "../../../../../context/questionnaires";
 
@@ -28,12 +23,16 @@ export default function QuestionCard({ step, index }) {
     setQuestionNo,
     setNextText,
   } = useContext(QuestionnairesContext);
-  const { t } = useTranslation(['questionnaires', 'app']);
+  const { t } = useTranslation(["questionnaires", "app"]);
 
   useEffect(() => {
     if (currentStep === step) {
       setQuestionNo(index + 1);
-      setNextText(questions[index].help ? t('submit', { ns: 'app' }) : t('next', { ns: 'app' }));
+      setNextText(
+        questions[index].help
+          ? t("submit", { ns: "app" })
+          : t("next", { ns: "app" })
+      );
     }
   }, [step, currentStep, setQuestionNo, index, setNextText, questions, t]);
 
@@ -64,7 +63,9 @@ export default function QuestionCard({ step, index }) {
       case "textarea":
         return <QuestionTextarea placeholder={t(placeholder)} {...{ index }} />;
       case "inputList":
-        return <QuestionInputList placeholder={t(placeholder)} {...{ max, index }} />;
+        return (
+          <QuestionInputList placeholder={t(placeholder)} {...{ max, index }} />
+        );
       default:
         break;
     }
@@ -72,9 +73,9 @@ export default function QuestionCard({ step, index }) {
 
   const processOptionsText = () => {
     let result = [];
-    if (type === "checkbox") result.push(t('multipleChoice', { ns: 'app' }));
-    if (max >= 1) result.push(t('maxItem', { ns: 'app', max }));
-    if (description !== '') result = [t(description)];
+    if (type === "checkbox") result.push(t("multipleChoice", { ns: "app" }));
+    if (max >= 1) result.push(t("maxItem", { ns: "app", max }));
+    if (description !== "") result = [t(description)];
 
     const resultText = result.join("、");
     return resultText !== "" ? ` (${resultText})` : null;
@@ -83,10 +84,14 @@ export default function QuestionCard({ step, index }) {
     <Card className={`flex-0 w-full ${currentStep !== step ? "h-0" : ""}`}>
       <CardHeader className="flex gap-3">
         <RiQuestionAnswerFill className="w-10 h-10" />
-        <div className={`text-lg ${(processOptionsText() && 'h-full') || ''}`}><strong>{index + 1}.</strong></div>
+        <div className={`text-lg ${(processOptionsText() && "h-full") || ""}`}>
+          <strong>{index + 1}.</strong>
+        </div>
         <div className="flex">
           <span className="text-lg">
-            <p><strong>{t(question)}</strong></p>
+            <p>
+              <strong>{t(question)}</strong>
+            </p>
             <p className="text-base">{processOptionsText()}</p>
           </span>
         </div>
@@ -96,7 +101,7 @@ export default function QuestionCard({ step, index }) {
         name={`question-${index}`}
         control={control}
         defaultValue={question}
-        render={() => { }}
+        render={() => {}}
       />
       <CardBody>{renderCardBody()}</CardBody>
     </Card>

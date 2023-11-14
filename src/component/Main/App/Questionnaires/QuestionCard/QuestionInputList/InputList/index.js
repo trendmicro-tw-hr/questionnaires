@@ -1,10 +1,10 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { Input, Tooltip, Button } from "@nextui-org/react";
 import { TbRowRemove, TbRowInsertBottom } from "react-icons/tb";
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from "react-i18next";
 
 export const InputList = ({ placeholder, max, field }) => {
-  const { t } = useTranslation('app');
+  const { t } = useTranslation("app");
   const [rows, setRows] = useState([]);
 
   const valueToRows = useCallback(() => {
@@ -46,7 +46,11 @@ export const InputList = ({ placeholder, max, field }) => {
             onChange={handleInputOnChange(idx)}
           />
           <div className="relative flex items-center gap-2">
-            <Tooltip color="danger" content={t('removeTrender')} placement="left">
+            <Tooltip
+              color="danger"
+              content={t("removeTrender")}
+              placement="left"
+            >
               <Button
                 isIconOnly
                 color="danger"
@@ -63,7 +67,7 @@ export const InputList = ({ placeholder, max, field }) => {
 
       <div className="flex px-4 flex-row-reverse justify-center">
         <div className="px-3">
-          <Tooltip color="success" content={t('addTrender')} placement="bottom">
+          <Tooltip color="success" content={t("addTrender")} placement="bottom">
             <Button
               color="success"
               aria-label="Add"
@@ -72,7 +76,7 @@ export const InputList = ({ placeholder, max, field }) => {
               onClick={handleAddOnClick}
             >
               <TbRowInsertBottom className="text-3xl" />
-              {t('addTrender')}
+              {t("addTrender")}
             </Button>
           </Tooltip>
         </div>

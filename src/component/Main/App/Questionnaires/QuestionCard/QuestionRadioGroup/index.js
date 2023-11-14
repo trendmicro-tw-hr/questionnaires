@@ -1,7 +1,7 @@
 import React, { useContext, useRef } from "react";
 import { Controller } from "react-hook-form";
 import { RadioGroup } from "@nextui-org/react";
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from "react-i18next";
 
 import QuestionnairesContext from "../../../../../../context/questionnaires";
 import { QuestionRadio } from "./QuestionRadio";
@@ -14,13 +14,19 @@ export const QuestionRadioGroup = ({ index, answers, otherAnswer, step }) => {
       questionsForm: { control },
     },
   } = useContext(QuestionnairesContext);
-  const { t } = useTranslation('questionnaires');
+  const { t } = useTranslation("questionnaires");
 
   const groupList = answers.map((answer) => {
     return (
-      <QuestionRadio key={`${index}-${answer.name}`} value={answer.value ?? answer.name} size="lg">
+      <QuestionRadio
+        key={`${index}-${answer.name}`}
+        value={answer.value ?? answer.name}
+        size="lg"
+      >
         <p>{t(answer.name)}</p>
-        {answer.description ? <p className="text-foreground/70">({t(answer.description)})</p> : null}
+        {answer.description ? (
+          <p className="text-foreground/70">({t(answer.description)})</p>
+        ) : null}
       </QuestionRadio>
     );
   });

@@ -4,7 +4,7 @@ import { BsChatTextFill } from "react-icons/bs";
 import { FaUserAlt } from "react-icons/fa";
 import { HiOutlineMailOpen } from "react-icons/hi";
 import { Controller } from "react-hook-form";
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from "react-i18next";
 
 import QuestionnairesContext from "../../../../../context/questionnaires";
 
@@ -16,7 +16,7 @@ export default function ThanksCard({ step }) {
     },
     setMaxStep,
   } = useContext(QuestionnairesContext);
-  const { t } = useTranslation('thanks');
+  const { t } = useTranslation("thanks");
 
   useEffect(() => {
     setMaxStep(step);
@@ -36,7 +36,7 @@ export default function ThanksCard({ step }) {
               {...field}
               className="flex-1"
               key="name"
-              label={t('name')}
+              label={t("name")}
               labelPlacement="outside"
               placeholder="Apple Hong"
               size="lg"
@@ -57,7 +57,7 @@ export default function ThanksCard({ step }) {
               className="flex-1"
               key="email"
               type="email"
-              label={t('email')}
+              label={t("email")}
               labelPlacement="outside"
               placeholder="apple_hong@trendmicro.com"
               size="lg"
@@ -75,8 +75,8 @@ export default function ThanksCard({ step }) {
       <CardHeader className="flex gap-3">
         <BsChatTextFill className="w-10 h-10" />
         <div className="flex flex-col">
-          <p className="text-2xl">{t('header-1')}</p>
-          <p className="text-2xl">{t('header-2')}</p>
+          <p className="text-2xl">{t("header-1")}</p>
+          <p className="text-2xl">{t("header-2")}</p>
         </div>
       </CardHeader>
       <Divider />
