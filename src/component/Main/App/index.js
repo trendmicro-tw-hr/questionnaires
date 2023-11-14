@@ -259,6 +259,7 @@ export default function App() {
         i18n.changeLanguage("en");
         break;
       default:
+        i18n.changeLanguage("zh-tw");
     }
   };
 
