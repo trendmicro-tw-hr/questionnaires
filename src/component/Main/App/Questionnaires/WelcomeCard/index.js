@@ -39,11 +39,11 @@ export default function WelcomeCard({ step }) {
         </p>
         <p>
           <Trans i18nKey="info_3" ns="welcome_card">
-            感恩節當天還有{" "}
+            感恩節當天還有
             <span className="text-TrendMicro">
               「感恩大放送 {">>>"} “雞”不可失 快閃活動」
-            </span>{" "}
-            ，你所感謝的人，有機會成為 <strong>"Kudos人氣王"</strong>{" "}
+            </span>
+            ，你所感謝的人，有機會成為 <strong>"Kudos人氣王"</strong>
             獲贈感謝好禮喔！記得book你的Outlook calendar，當天一起來鬥熱鬧~
           </Trans>
         </p>
