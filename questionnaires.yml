@@ -6,6 +6,7 @@ questionnaires:
   #   max: 最大數量 (checkbox and inputList only, 0 = 不限)
   #   placeholder: 說明 (textarea only)
   #   otherAnswer: 是否有其他選項 [false/true] (default: false)
+  #   maxIgnoresOtherAnswer: 是否忽略其他選項的最大數量限制 [false/true] (checkbox only, default: false)
   #   answers:
   #     - name: 答案1
   #       description: 答案1的描述
@@ -39,10 +40,11 @@ questionnaires:
     answerUpperCase: true
 
   - question: question_2
-    # description: description_2
+    description: description_2
     type: checkbox
     max: 2
     otherAnswer: true
+    maxIgnoresOtherAnswer: true
     answers:
       - name: answers_name-2_1
         description: answers_description-2_1
