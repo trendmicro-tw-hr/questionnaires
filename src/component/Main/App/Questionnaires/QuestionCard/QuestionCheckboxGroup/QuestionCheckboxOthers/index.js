@@ -67,7 +67,7 @@ export const QuestionCheckboxOthers = ({
       data-selected={dataSelected}
       key={`${step}-other-checkbox`}
       onClick={handleClick}
-      className="flex gap-4 p-4 cursor-pointer rounded-lg gap-4 p-4 border-2 border-transparent border-transparent bg-content1 hover:bg-content4 flex-row-reverse border-2 border-transparent data-[selected=true]:border-primary"
+      className="flex gap-4 p-4 max-md:p-1 cursor-pointer rounded-lg border-2 border-transparent border-transparent bg-content1 hover:bg-content4 flex-row-reverse border-2 border-transparent data-[selected=true]:border-primary"
     >
       <Checkbox
         className="flex-none"

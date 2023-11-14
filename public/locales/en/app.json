@@ -13,6 +13,6 @@
   "maxItem": "max {{max}} item(s)",
   "othersLabel": "Others",
   "othersPlaceholder": "other1, other2, other3...",
-  "othersDescription": "Tip: Please use , to separate multiple answers",
+  "othersDescription": "Use , to separate your answers",
   "switchLanguage": "中文"
 }
