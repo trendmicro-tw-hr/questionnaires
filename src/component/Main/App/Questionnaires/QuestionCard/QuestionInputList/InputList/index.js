@@ -67,18 +67,16 @@ export const InputList = ({ placeholder, max, field }) => {
 
       <div className="flex px-4 flex-row-reverse justify-center">
         <div className="px-3">
-          <Tooltip color="success" content={t("addTrender")} placement="bottom">
-            <Button
-              color="success"
-              aria-label="Add"
-              className="w-40"
-              isDisabled={rows.length >= max && max >= 1}
-              onClick={handleAddOnClick}
-            >
-              <TbRowInsertBottom className="text-3xl" />
-              {t("addTrender")}
-            </Button>
-          </Tooltip>
+          <Button
+            color="success"
+            aria-label="Add"
+            className="w-40"
+            isDisabled={rows.length >= max && max >= 1}
+            onClick={handleAddOnClick}
+          >
+            <TbRowInsertBottom className="text-3xl" />
+            {t("addTrender")}
+          </Button>
         </div>
       </div>
     </div>
