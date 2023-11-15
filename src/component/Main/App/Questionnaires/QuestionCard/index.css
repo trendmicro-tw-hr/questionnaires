@@ -1,0 +1,11 @@
+.other-input > label {
+  flex: 0 auto;
+}
+
+.other-input > div {
+  flex: 1 auto;
+}
+
+.other-input div[data-slot="description"] {
+  white-space: nowrap;
+}

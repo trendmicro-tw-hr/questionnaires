@@ -1,0 +1,86 @@
+name: github-actions
+on:
+  push:
+    branches:
+      - main
+  repository_dispatch:
+    type:
+      - submit-request
+
+jobs:
+  Send_To_MongoDB:
+    if: github.event_name == 'repository_dispatch'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Questionnaires data
+        if: github.event.client_payload.questionnaires != ''
+        run: |
+          SECRET_VALUE=$(cat $GITHUB_EVENT_PATH | jq -r '.client_payload.questionnaires' )
+          echo "::add-mask::$SECRET_VALUE"
+          echo $SECRET_VALUE > questionnaires.json
+
+      - name: Users data
+        if: github.event.client_payload.users != ''
+        run: |
+          SECRET_VALUE=$(cat $GITHUB_EVENT_PATH | jq -r '.client_payload.users' )
+          echo "::add-mask::$SECRET_VALUE"
+          echo $SECRET_VALUE > users.json
+
+      - name: Cache MongoDB tools
+        id: mongodb-tool-cache
+        uses: actions/cache@v3
+        with:
+          path: ~/bin/mongo*
+          key: ${{ runner.os }}-mongodb-database-tools
+
+      - if: ${{ steps.mongodb-tool-cache.outputs.cache-hit != 'true' }}
+        name: Install MongoDB tools
+        env:
+          EBE_FILE_NAME: mongodb-database-tools-ubuntu2004-x86_64-100.8.0.deb
+        run: |
+          sudo apt-get update && sudo apt-get -y install curl
+          curl -O https://fastdl.mongodb.org/tools/db/${{ env.EBE_FILE_NAME }} && sudo apt install ./${{ env.EBE_FILE_NAME }}
+          mkdir -p ~/bin
+          cp /usr/bin/mongo* ~/bin
+
+      - name: Insert questionnaires to MongoDB
+        if: github.event.client_payload.questionnaires != ''
+        run: |
+          ~/bin/mongoimport '${{ secrets.MONGODB_ATLAS_CONN_STR }}' --db=2023-thanksgiving-day --collection=questionnaires --mode=insert --type=json --file=questionnaires.json
+
+      - name: Insert personal information to MongoDB
+        if: github.event.client_payload.users != ''
+        run: |
+          ~/bin/mongoimport '${{ secrets.MONGODB_ATLAS_CONN_STR }}' --db=2023-thanksgiving-day --collection=users --mode=insert --type=json --file=users.json
+
+  Build_And_Deploy:
+    if: github.event_name == 'push'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+        with:
+          ref: ${{ env.GITHUB_REF_NAME }}
+
+      - name: Use Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "20.x"
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build
+        env:
+          HASH_ROUTER: true
+        run: npm run build
+
+      - name: Deploy
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          branch: gh-pages
+          folder: ./build
+          git-config-name: "GitHub Actions Deploy"
+          commit-message: "release: v1.0.${{ github.run_number }}"

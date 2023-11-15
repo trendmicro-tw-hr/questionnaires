@@ -1,0 +1,22 @@
+version: "3.5"
+name: questionnaires
+
+services:
+  web:
+    container_name: questionnaires-web
+    networks:
+      - LAN
+    image: node:20
+    tty: true
+    ports:
+      - 8008:8008
+    working_dir: /web
+    volumes:
+      - ./:/web
+    environment:
+      REACT_SCRIPTS_PORT: 8008
+
+networks:
+  LAN:
+    driver: bridge
+    name: questionnaires
