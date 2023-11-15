@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/questionnaires/static/css/main.3d824c4a.css",
-    "main.js": "/questionnaires/static/js/main.350ab418.js",
+    "main.js": "/questionnaires/static/js/main.5f5ec556.js",
     "index.html": "/questionnaires/index.html",
     "static/media/getFetch.cjs": "/questionnaires/static/media/getFetch.40f37ddea2378391108f.cjs",
     "main.3d824c4a.css.map": "/questionnaires/static/css/main.3d824c4a.css.map",
-    "main.350ab418.js.map": "/questionnaires/static/js/main.350ab418.js.map"
+    "main.5f5ec556.js.map": "/questionnaires/static/js/main.5f5ec556.js.map"
   },
   "entrypoints": [
     "static/css/main.3d824c4a.css",
-    "static/js/main.350ab418.js"
+    "static/js/main.5f5ec556.js"
   ]
 }
