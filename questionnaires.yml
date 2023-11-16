@@ -78,3 +78,8 @@ questionnaires:
     type: textarea
     placeholder: description_4
     allowEmptyValue: true
+
+  - question: question_5
+    type: textarea
+    placeholder: description_5
+    allowEmptyValue: true
