@@ -17,5 +17,7 @@
   "answers_name-3_3": "C. Vending Machine",
   "answers_name-3_4": "D. Nurse First Aid Station",
   "question_4": "Others I want to thank...",
-  "description_4": "Please input what you want to be thankful for"
+  "description_4": "Please enter something you want to thank for",
+  "question_5": "Others I want to thank...",
+  "description_5": "Please enter something you want to Kudos or thank yourself for"
 }
