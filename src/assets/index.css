@@ -855,6 +855,10 @@ video {
   margin-bottom: 1.25rem;
 }
 
+.mb-6 {
+  margin-bottom: 1.5rem;
+}
+
 .mb-px {
   margin-bottom: 1px;
 }
@@ -2507,10 +2511,6 @@ video {
 
 .pt-3 {
   padding-top: 0.75rem;
-}
-
-.pt-6 {
-  padding-top: 1.5rem;
 }
 
 .text-left {
@@ -7016,10 +7016,6 @@ body {
   .max-md\:py-3 {
     padding-top: 0.75rem;
     padding-bottom: 0.75rem;
-  }
-
-  .max-md\:pt-3 {
-    padding-top: 0.75rem;
   }
 
   .max-md\:text-2xl {

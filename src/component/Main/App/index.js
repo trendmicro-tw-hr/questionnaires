@@ -17,6 +17,7 @@ import { postQuestionnairesData, postUsersData } from "../../../utils/api";
 import QuestionnairesContext from "../../../context/questionnaires";
 import Questionnaires from "./Questionnaires";
 import ResultModel from "./ResultModel";
+import NoticeCard from "./NoticeCard";
 
 import "./index.css";
 
@@ -34,6 +35,7 @@ export default function App() {
     "questionnaires",
     "thanks",
     "result",
+    "notice",
   ]);
 
   const {
@@ -296,7 +298,10 @@ export default function App() {
           </h1>
         </NavbarContent>
       </Navbar>
-      <article className="flex-grow px-6 pt-6 max-md:px-3 max-md:pt-3">
+      <article className="px-6 max-md:px-3 ">
+        <NoticeCard />
+      </article>
+      <article className="flex-grow px-6 max-md:px-3">
         <Questionnaires />
         <ResultModel
           isOpen={isResultModalOpen}
